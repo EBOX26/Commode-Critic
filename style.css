@@ -1,0 +1,52 @@
+/* Center the header content */
+ body {
+    background-color: gray;
+}
+footer {
+    background-color: white;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; /* Optional: Header background color */
+    padding: 10px; /* Optional: Add padding to the header */
+}
+
+/* Style the h1 title */
+header h1 {
+    margin: 0; /* Remove any default margin */
+    color: white;
+}
+
+/* Style the search container */
+.search-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Allow the search container to take up available space */
+    justify-content: center; /* Center the search container horizontally */
+}
+
+.search-bar {
+    right: 35px;
+}
+.uk-search-default {
+    width: 50% !important;
+}
+header .uk-button { 
+    margin-right: 30px;
+}
+button.uk-button {
+    color: white !important;
+}
+.slideshow {
+    max-width: 90%; 
+    margin: 0 auto; 
+    margin-top: 30px;
+}
+.uk-slideshow-items {
+    height: 500px; /* Set your desired height */
+}
+footer p{
+    text-align: center;
+}
