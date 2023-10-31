@@ -1,6 +1,6 @@
-/* Center the header content */
- body {
+body {
     background-color: gray;
+    
 }
 footer {
     background-color: white;
@@ -9,22 +9,22 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333; /* Optional: Header background color */
-    padding: 10px; /* Optional: Add padding to the header */
+    background-color: #333; 
+    padding: 10px; 
 }
 
-/* Style the h1 title */
+
 header h1 {
-    margin: 0; /* Remove any default margin */
+    margin: 0; 
     color: white;
 }
 
-/* Style the search container */
+
 .search-container {
     display: flex;
     align-items: center;
-    flex-grow: 1; /* Allow the search container to take up available space */
-    justify-content: center; /* Center the search container horizontally */
+    flex-grow: 1; 
+    justify-content: center; 
 }
 
 .search-bar {
@@ -45,8 +45,40 @@ button.uk-button {
     margin-top: 30px;
 }
 .uk-slideshow-items {
-    height: 500px; /* Set your desired height */
+    height: 500px; 
 }
 footer p{
+    text-align: center;
+}
+.uk-search-input {
+    color: white !important;
+}
+footer div {
+    margin-top: 20px;
+}
+footer {
+    padding: 20px;
+}
+      /* Style for the reviews section */
+      .reviews {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Style for each individual review */
+    .review {
+        flex: 0 0 calc(33.33% - 5px); 
+        margin: 10px;
+        height: 200px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        text-align: center;
+        background-color: #f9f9f9;
+    }
+ .reviews-section {
+    margin-bottom: 35px;
+} 
+.recent-activity {
     text-align: center;
 }
