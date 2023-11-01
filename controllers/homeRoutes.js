@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// since it has the withAuth condition it is preventing users from viewing the homepage. Should we remove this? 
 router.get('/', withAuth, async (req, res) => {
     try {
         const userData = await User.findAll({
