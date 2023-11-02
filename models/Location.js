@@ -11,11 +11,11 @@ Location.init(
             primaryKey: true,
             autoIncrement: true,
            },
-           review: {
+        review: {
             type: DataTypes.STRING,
             allowNull: true,
            },
-           avg_rating: {
+        avg_rating: {
             type:DataTypes.INTEGER,
             allowNull: false,
             
