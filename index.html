@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Your Page Title</title>
+    <title>Commode Critic</title>
     <meta name="description" content="Review site for public toilets">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -17,9 +17,10 @@
     <header>
         <h1>Commode Critic</h1>
         <div class="uk-margin search-container">
-            <form class="uk-search uk-search-default search-bar">
+            <form class="uk-search uk-search-default search-bar" id="search-form">
                 <a href="" class="uk-search-icon-flip" uk-search-icon></a>
-                <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search">
+                <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search" id="place-search">
+                <!-- <button type="button" onclick="searchPlaces()">Search</button> -->
             </form>
         </div>
         <button class="uk-button uk-button-default btn">Log In</button>
@@ -27,32 +28,32 @@
     </header>
 
     <main>
-        <div uk-slideshow="animation: push; autoplay: true; autoplay-interval: 4000"class= "slideshow">
-
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-        
-                <ul class="uk-slideshow-items">
-                    <li>
-                        <img src="assets/toilet-1.png" alt="toilet-1" uk-cover>
-                    </li>
-                    <li>
-                        <img src="assets/toilet-2.png" alt="toilet-2" uk-cover>
-                    </li>
-                    <li>
-                        <img src="assets/toilet-3.png" alt="toilet-3" uk-cover>
-                    </li>
-                </ul>
-        
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
-        
+        <main>
+            <div class="slide-container">
+                <div class="slideshow" uk-slideshow="animation: push; autoplay: true; autoplay-interval: 3000">
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                        <ul class="uk-slideshow-items">
+                            <li>
+                                <img src="assets/toilet-1.png" alt="toilet-1" uk-cover>
+                            </li>
+                            <li>
+                                <img src="assets/toilet-2.png" alt="toilet-2" uk-cover>
+                            </li>
+                            <li>
+                                <img src="assets/toilet-3.png" alt="toilet-3" uk-cover>
+                            </li>
+                        </ul>
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
+                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                    </div>
+                    <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                </div>
             </div>
-        
-            <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
-        
-        </div>
+            <div class="search-results"></div>
+        </main>
         
     </main>
+    
     <!-- Reviews section -->
     <section class="reviews-section">
         <h2 class="recent-activity">Recent Activity</h2>
