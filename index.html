@@ -20,10 +20,9 @@
             <form class="uk-search uk-search-default search-bar" id="search-form">
                 <a href="" class="uk-search-icon-flip" uk-search-icon></a>
                 <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search" id="place-search">
-                <!-- <button type="button" onclick="searchPlaces()">Search</button> -->
             </form>
         </div>
-        <button class="uk-button uk-button-default btn">Log In</button>
+        <button class="uk-button uk-button-default btn btn-login">Log In</button>
         <button class="uk-button uk-button-default btn">Profile</button>
     </header>
 
@@ -44,7 +43,7 @@
                             </li>
                         </ul>
                         <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                        <a class "uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
                     </div>
                     <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
                 </div>
@@ -54,6 +53,9 @@
         
     </main>
     
+    <!-- Custom container for login form -->
+    <div id="custom-login-container"></div>
+
     <!-- Reviews section -->
     <section class="reviews-section">
         <h2 class="recent-activity">Recent Activity</h2>
@@ -103,9 +105,22 @@
             <p>Designed with precision, a keen eye for cleanliness, and a hint of bathroom humor. Remember, it's a dirty job, but someone's gotta do it!</p>
         </div>
     </footer>
-    
+
+    <!-- Login form template -->
+    <script type="text/x-handlebars-template" id="login-template">
+        <h2>Login</h2>
+        <form class="form login-form">
+            <div class="form-group">
+                <label for="email-login">email:</label>
+                <input class="form-input" type="text" id="email-login" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">login</button>
+            </div>
+        </form>
+        <script src="/js/login.js"></script>
+    </script>
 
     <script src="main.js"></script>
 </body>
 </html>
-
