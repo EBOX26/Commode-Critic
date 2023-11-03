@@ -264,19 +264,42 @@
 // });
 
 
-function searchPlaces() {
-    var searchTerm = document.getElementById("place-search").value;
-    fetch(`/search-places?searchTerm=${searchTerm}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error("Error fetching data from Google Places API:", error);
-        });
-}
+// function searchPlaces() {
+//     var searchTerm = document.getElementById("place-search").value;
+//     fetch(`/search-places?searchTerm=${searchTerm}`)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error('Network response was not ok');
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             console.log(data);
+//         })
+//         .catch(error => {
+//             console.error("Error fetching data from Google Places API:", error);
+//         });
+// }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Function to load the login form template
+    function loadLoginForm() {
+        var loginContainer = document.getElementById("custom-login-container");
+        loginContainer.innerHTML = ""; // Clear the container before adding the form
+
+        // Clone the content of the template using innerHTML
+        var template = document.getElementById("login-template");
+        var clone = document.createElement("div");
+        clone.innerHTML = template.innerHTML;
+        while (clone.firstChild) {
+            loginContainer.appendChild(clone.firstChild);
+        }
+
+        UIkit.modal(loginContainer).show(); // Show the form using UIkit modal
+    }
+
+    // Add a click event listener to the "Log In" button
+    var loginButton = document.querySelector(".btn-login");
+    loginButton.addEventListener("click", loadLoginForm);
+});
