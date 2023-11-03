@@ -1,103 +1,99 @@
+/* General styles */
 body {
     background-color: gray;
-    
 }
+
 footer {
     background-color: white;
 }
+
+/* Header styles */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333; 
-    padding: 10px; 
+    background-color: #333;
+    padding: 10px;
 }
-
 
 header h1 {
-    margin: 0; 
+    margin: 0;
     color: white;
 }
-
 
 .search-container {
     display: flex;
     align-items: center;
-    flex-grow: 1; 
-    justify-content: center; 
+    flex-grow: 1;
+    justify-content: center;
 }
 
 .search-bar {
     right: 35px;
 }
+
 .uk-search-default {
     width: 50% !important;
 }
-header .uk-button { 
+
+header .uk-button {
     margin-right: 30px;
 }
+
 button.uk-button {
     color: white !important;
 }
+
+/* Slideshow styles */
 .slideshow {
-    max-width: 90%; 
-    margin: 0 auto; 
+    max-width: 90%;
+    margin: 0 auto;
     margin-top: 30px;
 }
+
 .uk-slideshow-items {
-    height: 500px; 
+    height: 500px;
 }
-footer p{
-    text-align: center;
-}
-.uk-search-input {
-    color: white !important;
-}
-footer div {
-    margin-top: 20px;
-}
+
+/* Footer styles */
 footer {
     padding: 20px;
 }
-      /* Style for the reviews section */
-      .reviews {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 
-    /* Style for each individual review */
-    .review {
-        flex: 0 0 calc(33.33% - 5px); 
-        margin: 10px;
-        height: 200px;
-        padding: 15px;
-        border: 1px solid #ccc;
-        text-align: center;
-        background-color: #f9f9f9;
-    }
- .reviews-section {
-    margin-bottom: 35px;
-} 
-.recent-activity {
+footer p {
     text-align: center;
 }
-/* Add these styles to make the search-results div the same size as the slideshow */
-.search-results {
-    width: 90%; /* Adjust the width as needed */
-    margin: 0 auto;
-    margin-top: 30px;
-    max-width: 100%; /* Ensure the width doesn't exceed the container's width */
-    background-color: red; /* Apply the background color */
-    display: none; /* Hide the search results initially */
+
+footer div {
+    margin-top: 20px;
 }
 
-/* Style for the reviews section and other styles (retain your existing styles) */
-/* ... */
+/* Reviews styles */
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
+.review {
+    flex: 0 0 calc(33.33% - 5px);
+    margin: 10px;
+    height: 200px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #f9f9f9;
+}
 
-/* added styling for the template */
+.reviews-section {
+    margin-bottom: 35px;
+}
 
+recent-activity {
+    text-align: center;
+}
+
+/* Added styling for the template */
 .login-form {
     background-color: #f0f0f0;
     padding: 20px;
