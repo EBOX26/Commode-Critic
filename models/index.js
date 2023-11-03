@@ -6,8 +6,9 @@ Review.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Review.belongsTo(Location, {
-    foreignKey: 'location_id'
-});
+// Insomnia trying to check for location data that does not have a route and isn't available
+// Location.hasMany(Review, {
+//     foreignKey: 'location_id'
+// });
 
 module.exports = { User, Review, Location }

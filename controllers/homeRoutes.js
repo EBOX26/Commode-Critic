@@ -3,7 +3,7 @@ const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // since it has the withAuth condition it is preventing users from viewing the homepage. Should we remove this? 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const userData = await User.findAll({
             attributes: { exclude: ['password'] },
@@ -31,7 +31,7 @@ router.get('/', withAuth, async (req, res) => {
  });
 
  //Finds the logged in user using the session ID
- router.get('/profile', withAuth, async (req, res) => {
+ router.get('/profile', async (req, res) => {
     try {
         const userData =await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },

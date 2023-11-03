@@ -25,7 +25,7 @@ Location.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'review',
+        modelName: 'location',
     }
 );
 module.exports = Location
