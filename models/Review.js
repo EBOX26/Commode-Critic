@@ -27,7 +27,6 @@ Review.init(
             key: 'id',
         }
        }
-       
     },
     {
         sequelize,
