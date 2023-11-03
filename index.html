@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Commode Critic</title>
+    <meta name="description" content="Review site for public toilets">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.6/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.6/dist/js/uikit-icons.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Commode Critic</h1>
+        <div class="uk-margin search-container">
+            <form class="uk-search uk-search-default search-bar" id="search-form">
+                <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+                <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search" id="place-search">
+            </form>
+        </div>
+        <button class="uk-button uk-button-default btn btn-login">Log In</button>
+        <button class="uk-button uk-button-default btn">Profile</button>
+    </header>
+
+    <main>
+        <main>
+            <div class="slide-container">
+                <div class="slideshow" uk-slideshow="animation: push; autoplay: true; autoplay-interval: 3000">
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                        <ul class="uk-slideshow-items">
+                            <li>
+                                <img src="assets/toilet-1.png" alt="toilet-1" uk-cover>
+                            </li>
+                            <li>
+                                <img src="assets/toilet-2.png" alt="toilet-2" uk-cover>
+                            </li>
+                            <li>
+                                <img src="assets/toilet-3.png" alt="toilet-3" uk-cover>
+                            </li>
+                        </ul>
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
+                        <a class "uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                    </div>
+                    <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                </div>
+            </div>
+            <div class="search-results"></div>
+        </main>
+        
+    </main>
+    
+    <!-- Custom container for login form -->
+    <div id="custom-login-container"></div>
+
+    <!-- Reviews section -->
+    <section class="reviews-section">
+        <h2 class="recent-activity">Recent Activity</h2>
+        <div class="reviews">
+            <!-- Review 1 -->
+            <div class="review">
+                <h3>Review 1</h3>
+                <p>This is the first review text.</p>
+            </div>
+    
+            <!-- Review 2 -->
+            <div class="review">
+                <h3>Review 2</h3>
+                <p>This is the second review text.</p>
+            </div>
+    
+            <!-- Review 3 -->
+            <div class="review">
+                <h3>Review 3</h3>
+                <p>This is the third review text.</p>
+            </div>
+    
+            <!-- Review 4 -->
+            <div class="review">
+                <h3>Review 4</h3>
+                <p>This is the fourth review text.</p>
+            </div>
+    
+            <!-- Review 5 -->
+            <div class="review">
+                <h3>Review 5</h3>
+                <p>This is the fifth review text.</p>
+            </div>
+    
+            <!-- Review 6 -->
+            <div class="review">
+                <h3>Review 6</h3>
+                <p>This is the sixth review text.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <p>Disclaimer: We take reviewing public restrooms very seriously. Please don't flush this website's credibility down the drain.</p>
+            <p>&copy; 20XX Commode Critic, Inc. All rights reserved, including the right to rate restroom rolls and flush fixtures.</p>
+            <p>Designed with precision, a keen eye for cleanliness, and a hint of bathroom humor. Remember, it's a dirty job, but someone's gotta do it!</p>
+        </div>
+    </footer>
+
+    <!-- Login form template -->
+    <script type="text/x-handlebars-template" id="login-template">
+        <h2>Login</h2>
+        <form class="form login-form">
+            <div class="form-group">
+                <label for="email-login">email:</label>
+                <input class="form-input" type="text" id="email-login" />
+            </div>
+            <div class="form-group">
+                <label for="password-login">password:</label>
+                <input class="form-input" type="password" id="password-login" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">login</button>
+            </div>
+        </form>
+        <script src="/js/login.js"></script>
+    </script>
+
+    <script src="main.js"></script>
+</body>
+</html>

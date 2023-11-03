@@ -1,0 +1,126 @@
+/* General styles */
+body {
+    background-color: gray;
+}
+
+footer {
+    background-color: white;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+header h1 {
+    margin: 0;
+    color: white;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.search-bar {
+    right: 35px;
+}
+
+.uk-search-default {
+    width: 50% !important;
+}
+
+header .uk-button {
+    margin-right: 30px;
+}
+
+button.uk-button {
+    color: white !important;
+}
+
+/* Slideshow styles */
+.slideshow {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.uk-slideshow-items {
+    height: 500px;
+}
+
+/* Footer styles */
+footer {
+    padding: 20px;
+}
+
+footer p {
+    text-align: center;
+}
+
+footer div {
+    margin-top: 20px;
+}
+
+/* Reviews styles */
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.review {
+    flex: 0 0 calc(33.33% - 5px);
+    margin: 10px;
+    height: 200px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.reviews-section {
+    margin-bottom: 35px;
+}
+
+recent-activity {
+    text-align: center;
+}
+
+/* Added styling for the template */
+.login-form {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.btn-primary {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
