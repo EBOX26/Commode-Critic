@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Review } = require('../models');
 const withAuth = require('../utils/auth');
 
-// since it has the withAuth condition it is preventing users from viewing the homepage. Should we remove this? 
+// route to get user
 router.get('/', async (req, res) => {
     try {
         const userData = await User.findAll({
@@ -54,5 +54,35 @@ router.get('/', async (req, res) => {
     }
     res.render('login');
  });
+
+ // route to get all review
+router.get('/reviews', async (req, res) => {
+    const reviewData = await Review.findAll().catch((err) => { 
+        res.json(err);
+      });
+        const reviews = reviewData.map((review) => review.get({ plain: true }));
+        res.status(200).json(reviews);
+
+        //need to create the all-reviews handlebar
+        //res.render('all-reviews', { reviews });
+      });
+
+// route to get one review
+router.get('/reviews/:id', async (req, res) => {
+    try{ 
+        const reviewData = await Review.findByPk(req.params.id);
+        if(!reviewData) {
+            res.status(404).json({message: 'No review with this id!'});
+            return;
+        }
+        const review = reviewData.get({ plain: true });
+        //need to create the review handle bar route
+        //res.render('review', review);
+        res.status(200).json(review);
+
+      } catch (err) {
+          res.status(500).json(err);
+      };     
+  });
 
  module.exports = router;
