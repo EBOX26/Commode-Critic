@@ -89,7 +89,7 @@ footer div {
     margin-bottom: 35px;
 }
 
-recent-activity {
+.recent-activity {
     text-align: center;
 }
 
@@ -123,4 +123,17 @@ input {
     padding: 10px 20px;
     border-radius: 3px;
     cursor: pointer;
+}
+
+.review-form {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.uk-button.uk-button-default.btn {
+    display: grid;
+    place-items: center;
+    height: 100%; /* Ensure the button takes up the full height */
 }
