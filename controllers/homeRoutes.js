@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     try {
         const userData = await User.findAll({
             attributes: { exclude: ['password'] },
-            order: [['name', 'ASC']],
+            order: [['username', 'ASC']],
         });
 
         const users = userData.map((project) => project.get({ plain: true }));
@@ -60,11 +60,11 @@ router.get('/reviews', async (req, res) => {
     const reviewData = await Review.findAll().catch((err) => { 
         res.json(err);
       });
+      console.log(reviewData)
         const reviews = reviewData.map((review) => review.get({ plain: true }));
         res.status(200).json(reviews);
 
-        //need to create the all-reviews handlebar
-        //res.render('all-reviews', { reviews });
+        res.render('all-reviews', { reviews });
       });
 
 // route to get one review
@@ -76,9 +76,9 @@ router.get('/reviews/:id', async (req, res) => {
             return;
         }
         const review = reviewData.get({ plain: true });
-        //need to create the review handle bar route
-        //res.render('review', review);
+        
         res.status(200).json(review);
+        res.render('review', review);
 
       } catch (err) {
           res.status(500).json(err);
