@@ -5,6 +5,7 @@ const withAuth = require('../utils/auth');
 // route to get user
 router.get('/', async (req, res) => {
     try {
+        // fetching user data
         const userData = await User.findAll({
             attributes: { exclude: ['password'] },
             order: [['username', 'ASC']],
@@ -12,8 +13,17 @@ router.get('/', async (req, res) => {
 
         const users = userData.map((project) => project.get({ plain: true }));
 
+        //fetching review data
+        const reviewData = await Review.findAll({
+            include: {model: User, required: true},
+            attributes: ['user.username', 'review_content', 'rating']
+        });
+
+        const reviews = reviewData.map((review) => [review.user.dataValues.username, review.dataValues.review_content, review.dataValues.rating]);
+
         res.render('homepage', {
             users,
+            reviews: reviews,
             logged_in: req.session.logged_in, 
         });
 
@@ -57,28 +67,32 @@ router.get('/', async (req, res) => {
 
  // route to get all review
 router.get('/reviews', async (req, res) => {
-    const reviewData = await Review.findAll().catch((err) => { 
+    const reviewData = await Review.findAll({
+        include: {model: User, required: true},
+        attributes: ['user.username', 'review_content', 'rating']
+    }).catch((err) => { 
         res.json(err);
       });
-      console.log(reviewData)
-        const reviews = reviewData.map((review) => review.get({ plain: true }));
-        res.status(200).json(reviews);
+      
+      const reviews = reviewData.map((review) => [review.user.dataValues.username, review.dataValues.review_content, review.dataValues.rating]);
 
-        res.render('all-reviews', { reviews });
+        res.render('all-reviews', { reviews: reviews });
       });
 
 // route to get one review
 router.get('/reviews/:id', async (req, res) => {
     try{ 
-        const reviewData = await Review.findByPk(req.params.id);
+        const reviewData = await Review.findByPk(req.params.id, {
+            include: {model: User, required: true},
+            attributes: ['user.username', 'review_content', 'rating']});
         if(!reviewData) {
             res.status(404).json({message: 'No review with this id!'});
             return;
         }
         const review = reviewData.get({ plain: true });
+        console.log(review)
         
-        res.status(200).json(review);
-        res.render('review', review);
+        res.render('review', {review: review});
 
       } catch (err) {
           res.status(500).json(err);
