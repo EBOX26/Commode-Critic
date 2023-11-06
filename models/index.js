@@ -5,6 +5,7 @@ const Location = require('./Location');
 Review.belongsTo(User, {
     foreignKey: 'user_id'
 });
+User.hasMany(Review);
 
 // Insomnia trying to check for location data that does not have a route and isn't available
 // Location.hasMany(Review, {
