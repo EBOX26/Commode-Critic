@@ -145,19 +145,19 @@ document.addEventListener('submit', (event) => {
     if (event.target.id === 'reviewForm') {
     event.preventDefault();
     //getting the values of the submitted form
-    const username = document.getElementById("username-login").value;
-    const password = document.getElementById("password-login").value;
-    const userLogIn = {
-        username,
-        password
+    const text = document.getElementById("reviewText").value;
+    const rating = document.getElementById("reviewRating").value;
+    const reviewData = {
+        text,
+        rating
     };
     //sending the user login to the post destination
-    fetch('/api/users/login', {
+    fetch('/api/reviews', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(userLogIn),
+        body: JSON.stringify(reviewData),
     })
         .then((response) => {
             if (response.ok) {
