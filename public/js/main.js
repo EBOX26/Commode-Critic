@@ -139,6 +139,36 @@ document.addEventListener('submit', (event) => {
     }
 });
 
+// setting an event listener when the submit review button is clicked to grab the form data:
+document.addEventListener('submit', (event) => {
+    // may want to remove this to see if it removes the sign in pop up by default. 
+    if (event.target.id === 'reviewForm') {
+    event.preventDefault();
+    //getting the values of the submitted form
+    const username = document.getElementById("username-login").value;
+    const password = document.getElementById("password-login").value;
+    const userLogIn = {
+        username,
+        password
+    };
+    //sending the user login to the post destination
+    fetch('/api/users/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userLogIn),
+    })
+        .then((response) => {
+            if (response.ok) {
+                document.location.replace('/');
+            } })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+    }
+});
+
 // JavaScript function to display the review form when the button is clicked
 function showReviewForm() {
     // Get the review form template content
