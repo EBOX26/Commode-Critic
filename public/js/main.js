@@ -18,9 +18,42 @@ document.addEventListener("DOMContentLoaded", function() {
         UIkit.modal(loginContainer).show();
     }
 
-    // Add a click event listener to the "Log In" button
-    var loginButton = document.querySelector(".btn-login");
+// Add a click event listener to the "Log In" button
+var loginButton = document.querySelector(".btn-login");
     loginButton.addEventListener("click", loadLoginForm);
+});
+
+// setting an event listener when the Log In button is clicked to grab the form data:
+document.getElementById('login-form').addEventListener('submit', (event) => {
+    // may want to remove this to see if it removes the sign in pop up by default. 
+    event.preventDefault();
+
+    //getting the values of the submitted form
+    const username = document.getElementById("username-login").value;
+
+    const password = document.getElementById("password-login").value;
+
+    const userLogIn = {
+        username,
+        password
+    };
+
+    //sending the user login to the post destination
+    fetch('/api/users/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userLogIn),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            // Handle the response from the back end
+            console.log(data);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
 });
 
 // JavaScript function to display the review form when the button is clicked
