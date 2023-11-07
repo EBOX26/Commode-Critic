@@ -1,6 +1,7 @@
 {{!-- homepage insert for the handlebars --}}
 
 <main>
+    <div id="reviewFormContainer"></div>
     <div class="slide-container">
         <div class="slideshow" uk-slideshow="animation: push; autoplay: true; autoplay-interval: 3000">
             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
@@ -15,16 +16,23 @@
                         <img src="/images/toilet-3.png" alt="toilet-3" uk-cover>
                     </li>
                 </ul>
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous
-                    uk-slideshow-item="previous"></a>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next
-                    uk-slideshow-item="next"></a>
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+
+                <!-- Add the text over the slideshow using UIKit classes -->
+                <div class="uk-position-center uk-text-center">
+                    <h1 class="uk-heading-medium">Restrooms Near You</h1>
+                </div>
             </div>
             <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
         </div>
     </div>
     <div class="search-results"></div>
 </main>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+<!-- Custom container for login form -->
 <div id="custom-login-container"></div>
 
 <!-- Reviews section -->
@@ -40,3 +48,40 @@
             job, but someone's gotta do it!</p>
     </div>
 </footer>
+
+    <!-- Login form template -->
+    <script type="text/x-handlebars-template" id="login-template">
+        <h2>Login</h2>
+        <form class="form login-form">
+            <div class="form-group">
+                <label for="email-login">email:</label>
+                <input class="form-input" type="text" id="email-login" />
+            </div>
+            <div class="form-group">
+                <label for="password-login">password:</label>
+                <input class="form-input" type="password" id="password-login" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">login</button>
+            </div>
+        </form>
+        <script src="/js/login.js"></script>
+    </script>
+    <!-- Review form template -->
+    <script id="reviewFormTemplate" type="text/x-handlebars-template">
+        <form id="reviewForm" class="review-form">
+            <label for="reviewTitle">Review Title:</label>
+            <input type="text" id="reviewTitle" name="reviewTitle" required>
+
+            <label for="reviewText">Review Text:</label>
+            <textarea id="reviewText" name="reviewText" rows="5" required></textarea>
+
+            <label for="reviewRating">Rating (1-5):</label>
+            <input type="number" id="reviewRating" name="reviewRating" min="1" max="5" required>
+
+            <button type="submit">Submit Review</button>
+        </form>
+    </script>
+
+    <script src="/js/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCncdS0ebHpMYDd5zH4IBqeftgX1EPNSQM&libraries=places&callback=initMap"></script>
