@@ -189,7 +189,11 @@ function showReviewForm() {
 // Add an event listener to trigger the showReviewForm function when the button is clicked
 document.getElementById('writeReviewButton').addEventListener('click', showReviewForm);
 
-//document.getElementById('reviewButton').addEventListener('click', showReviewForm);
+document.getElementById('reviewButton').addEventListener('click', (event) => {
+    if (event.target.id === 'reviewButton'){
+        document.location.replace('/reviews')
+    }
+});
 
 // Initialize the map when the page loads
 function initMap() {
