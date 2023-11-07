@@ -144,3 +144,39 @@ input {
     display: block; 
     margin: 0 auto;  
 }
+/* Default styles for buttons */
+button.uk-button {
+    color: white !important;
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    /* For screens with a maximum width of 1200px */
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    header .uk-button {
+        margin: 5px 0;
+        width: 100%;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* For screens with a maximum width of 768px */
+    header .uk-button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* For screens with a maximum width of 480px */
+    header .uk-button {
+        font-size: 12px;
+    }
+}
