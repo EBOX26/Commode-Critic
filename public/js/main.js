@@ -1,5 +1,5 @@
 // Wait for the DOM content to load before executing the code
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Function to load the login form template
     function loadLoginForm() {
         // Get the login container element
@@ -18,18 +18,18 @@ document.addEventListener("DOMContentLoaded", function() {
         UIkit.modal(loginContainer).show();
     }
 
-// Add a click event listener to the "Log In" button
-var loginButton = document.querySelector(".btn-login");
+    // Add a click event listener to the "Log In" button
+    var loginButton = document.querySelector(".btn-login");
     loginButton.addEventListener("click", loadLoginForm);
 });
 
 // Wait for the DOM content to load before executing the code
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     function loadCreateAccountForm() {
 
         var createAcountContainer = document.getElementById("custom-createAcount-container");
-        createAcountContainer.innerHTML = ""; 
+        createAcountContainer.innerHTML = "";
 
         // Clone the content of the template using innerHTML
         var template = document.getElementById("createAccount-template");
@@ -43,9 +43,9 @@ document.addEventListener("DOMContentLoaded", function() {
         UIkit.modal(createAcountContainer).show();
     }
 
-// Add a click event listener to the "Log In" button
-// might be issue here with the .btn-login
-var loginButton = document.querySelector(".btn-createAccount");
+    // Add a click event listener to the "Log In" button
+    // might be issue here with the .btn-login
+    var loginButton = document.querySelector(".btn-createAccount");
     loginButton.addEventListener("click", loadCreateAccountForm);
 });
 
@@ -53,33 +53,33 @@ var loginButton = document.querySelector(".btn-createAccount");
 document.addEventListener('submit', (event) => {
     // may want to remove this to see if it removes the sign in pop up by default. 
     if (event.target.id === 'login-form') {
-    event.preventDefault();
-    //getting the values of the submitted form
-    const username = document.getElementById("username-login").value;
-    const password = document.getElementById("password-login").value;
-    const userLogIn = {
-        username,
-        password
-    };
-    //sending the user login to the post destination
-    fetch('/api/users/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userLogIn),
-    })
-        .then((response) => {
-            if (response.ok) {
-                document.location.replace('/');
-                alert('You are logged in')
-        } else {
-            alert('Failed to logged in')
-            }
+        event.preventDefault();
+        //getting the values of the submitted form
+        const username = document.getElementById("username-login").value;
+        const password = document.getElementById("password-login").value;
+        const userLogIn = {
+            username,
+            password
+        };
+        //sending the user login to the post destination
+        fetch('/api/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userLogIn),
         })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
+            .then((response) => {
+                if (response.ok) {
+                    document.location.replace('/');
+                    alert('You are logged in')
+                } else {
+                    alert('Failed to logged in')
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 });
 
@@ -87,71 +87,84 @@ document.addEventListener('submit', (event) => {
 document.addEventListener('submit', (event) => {
 
     if (event.target.id === 'createAccount') {
-    event.preventDefault();
+        event.preventDefault();
 
-    //getting the values of the submitted form
-    const username = document.getElementById("account-username").value;
-    const password = document.getElementById("account-password").value;
-    const userLogIn = {
-        username,
-        password
-    };
+        //getting the values of the submitted form
+        const username = document.getElementById("account-username").value;
+        const password = document.getElementById("account-password").value;
+        const userLogIn = {
+            username,
+            password
+        };
 
-    //sending the user login to the post destination
-    fetch('/api/users', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userLogIn),
-    })
-        .then((response) => {
-            if (response.ok) {
-                document.location.replace('/');
-                alert('Account created')
-            } else {
-                alert('Fail to create account')
-                }
+        //sending the user login to the post destination
+        fetch('/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userLogIn),
         })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
+            .then((response) => {
+                if (response.ok) {
+                    document.location.replace('/');
+                    alert('Account created')
+                } else {
+                    alert('Fail to create account')
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 });
 
 // setting an event listener when the submit review button is clicked to grab the form data:
 document.addEventListener('submit', (event) => {
-    // may want to remove this to see if it removes the sign in pop up by default. 
+
     if (event.target.id === 'reviewForm') {
-    event.preventDefault();
-    //getting the values of the submitted form
-    const text = document.getElementById("reviewText").value;
-    const rating = document.getElementById("reviewRating").value;
-    const reviewData = {
-        text,
-        rating
-    };
-    //sending the user login to the post destination
-    fetch('/api/reviews', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(reviewData),
+        event.preventDefault();
+
+        // checking the login status
+        // checkUserAuthentication()
+
+        const user_id = getUserId()
+        getUserId()
+            .then((userId) => {
+                const user_id = userId
+                console.log(userId)
+                //getting the values of the submitted form
+                const review_content = document.getElementById("reviewText").value;
+                const rating = document.getElementById("reviewRating").value;
+                const reviewData = {
+                    review_content,
+                    rating,
+                    user_id
+                };
+                //sending the user login to the post destination
+                fetch('/api/reviews', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(reviewData),
+                })
+                .then((response) => {
+                    if (response.ok) {
+                        document.location.replace('/');
+                        alert('Review created')
+                    } else {
+                        alert('Failed to create review')
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            })
+        }
     })
-        .then((response) => {
-            if (response.ok) {
-                document.location.replace('/');
-                alert('Review created')
-            } else {
-                alert('Failed to create review')
-                }
-        })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
-    }
-});
+
+
 
 // JavaScript function to display the review form when the button is clicked
 function showReviewForm() {
@@ -164,10 +177,19 @@ function showReviewForm() {
     // Render the template into the desired container
     const reviewFormContainer = document.getElementById('reviewFormContainer');
     reviewFormContainer.innerHTML = template();
+
+    getUsername()
+        .then((name) => {
+            const username = name
+            const usernameField = document.getElementById('username-field');
+            usernameField.value = username;
+        });
 }
 
 // Add an event listener to trigger the showReviewForm function when the button is clicked
 document.getElementById('writeReviewButton').addEventListener('click', showReviewForm);
+
+//document.getElementById('reviewButton').addEventListener('click', showReviewForm);
 
 // Initialize the map when the page loads
 function initMap() {
@@ -215,7 +237,7 @@ function createMarker(place, map, markers) {
     });
 
     // Add a click event listener to the marker
-    marker.addListener('click', function() {
+    marker.addListener('click', function () {
         // You can display more information here, e.g., an info window
         const infoWindow = new google.maps.InfoWindow({
             content: place.name
@@ -232,3 +254,65 @@ function createMarker(place, map, markers) {
 
 // Make the initMap function globally accessible
 window.initMap = initMap;
+
+
+// // initialize a variable to track user authentication status
+// let userIsAuthenticated = false;
+
+// // Check the user's authentication status
+// function checkUserAuthentication() {
+
+//     if (req.session.logged_in) {
+//         userIsAuthenticated = true;
+//     } else {
+//         userIsAuthenticated = false;
+//     }
+// }
+
+// getting the user name of the person signed in
+function getUsername() {
+    return new Promise((resolve, reject) => {
+        fetch('/api/users/current', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+            })
+            .then((data) => {
+                resolve(data.username);
+            })
+            .catch((error) => {
+                reject(new Error('username undefined'))
+            });
+    })
+}
+
+
+// function to get user id
+function getUserId() {
+    return new Promise((resolve, reject) => {
+        fetch('/api/users/current', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+            })
+            .then((data) => {
+                console.log(data.id)
+                resolve(data.id);
+            })
+            .catch((error) => {
+                reject(new Error('username undefined'))
+            });
+    })
+}

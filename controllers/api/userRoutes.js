@@ -42,6 +42,7 @@ router.post('/login', async (req, res) => {
 
         req.session.save(() => {
             req.session.username = userData.username;
+            req.session.user_id = userData.id;
             req.session.logged_in = true;
 
             res.json({ user: userData, message: 'You are now logged in!'});
@@ -51,6 +52,16 @@ router.post('/login', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get('/current', (req, res) => {
+    const username = req.session.username;
+    const id = req.session.user_id;
+    if (username && id) {
+      res.json({ username, id });
+    } else {
+      res.json({ username: null });
+    }
+  });
 
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
