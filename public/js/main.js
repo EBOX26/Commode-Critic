@@ -24,20 +24,17 @@ var loginButton = document.querySelector(".btn-login");
 });
 
 // setting an event listener when the Log In button is clicked to grab the form data:
-document.getElementById('login-form').addEventListener('submit', (event) => {
+document.addEventListener('submit', (event) => {
     // may want to remove this to see if it removes the sign in pop up by default. 
+    if (event.target.id === 'login-form') {
     event.preventDefault();
-
     //getting the values of the submitted form
     const username = document.getElementById("username-login").value;
-
     const password = document.getElementById("password-login").value;
-
     const userLogIn = {
         username,
         password
     };
-
     //sending the user login to the post destination
     fetch('/api/users/login', {
         method: 'POST',
@@ -46,14 +43,14 @@ document.getElementById('login-form').addEventListener('submit', (event) => {
         },
         body: JSON.stringify(userLogIn),
     })
-        .then((response) => response.json())
-        .then((data) => {
-            // Handle the response from the back end
-            console.log(data);
-          })
+        .then((response) => {
+            if (response.ok) {
+                document.location.replace('/');
+            } })
           .catch((error) => {
             console.error('Error:', error);
           });
+    }
 });
 
 // JavaScript function to display the review form when the button is clicked
