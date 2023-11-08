@@ -54,7 +54,7 @@ Node, handlebars, JavaScript, UIKit for CSS and JS, Express, Google Places API, 
 ## Deployment Location <a id="deployment_location"></a>
 
 <!-- Deployment Location -->
-Live site: aa
+Live site: https://commode-critic-8a47383c76b7.herokuapp.com/
 
 Github: https://github.com/EBOX26/Commode-Critic
 
