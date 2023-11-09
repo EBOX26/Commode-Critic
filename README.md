@@ -101,9 +101,14 @@ Just because it’s a dirty business doesn’t mean it needs to be.
 
     screenshots:   
 
-    ![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/79d6b1a4-24ff-499f-b9bb-7e02c8b75293)
-    ![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/33a35796-48ca-48e9-bcf4-73eefc997ba2)
-    ![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/3bca5d0d-7cfc-4120-8201-a3567502d9d6)
+  screenshots:   
+
+![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/29d1bb97-246a-463d-bbd0-7c0a84cfbacf)
+![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/fcc9cc5f-35ec-47a5-bf26-04988bf746c5)
+![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/070fc280-0041-4164-86ea-05700ac32345)
+
+
+
 
 
 
