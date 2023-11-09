@@ -98,4 +98,12 @@ MIT License
 Just because it’s a dirty business doesn’t mean it needs to be.
 
 ---
-    
+
+    screenshots:   
+
+    ![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/79d6b1a4-24ff-499f-b9bb-7e02c8b75293)
+    ![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/33a35796-48ca-48e9-bcf4-73eefc997ba2)
+    ![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/3bca5d0d-7cfc-4120-8201-a3567502d9d6)
+
+
+
