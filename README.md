@@ -54,7 +54,7 @@ Node, handlebars, JavaScript, UIKit for CSS and JS, Express, Google Places API, 
 ## Deployment Location <a id="deployment_location"></a>
 
 <!-- Deployment Location -->
-Live site: aa
+Live site: https://commode-critic-8a47383c76b7.herokuapp.com/
 
 Github: https://github.com/EBOX26/Commode-Critic
 
@@ -98,4 +98,17 @@ MIT License
 Just because it’s a dirty business doesn’t mean it needs to be.
 
 ---
-    
+
+    screenshots:   
+
+  screenshots:   
+
+![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/29d1bb97-246a-463d-bbd0-7c0a84cfbacf)
+![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/fcc9cc5f-35ec-47a5-bf26-04988bf746c5)
+![image](https://github.com/EBOX26/Commode-Critic/assets/139289311/070fc280-0041-4164-86ea-05700ac32345)
+
+
+
+
+
+
